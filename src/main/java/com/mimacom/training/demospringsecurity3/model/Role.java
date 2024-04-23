@@ -1,4 +1,4 @@
-package com.mimacom.training.demospringsecurity_2.model;
+package com.mimacom.training.demospringsecurity3.model;
 
 import jakarta.persistence.*;
 

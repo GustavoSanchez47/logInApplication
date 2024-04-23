@@ -1,9 +1,8 @@
-package com.mimacom.training.demospringsecurity_2.controller;
+package com.mimacom.training.demospringsecurity3.controller;
 
-import com.mimacom.training.demospringsecurity_2.dto.UserRegistrationDTO;
-import com.mimacom.training.demospringsecurity_2.service.UserService;
+import com.mimacom.training.demospringsecurity3.dto.UserRegistrationDTO;
+import com.mimacom.training.demospringsecurity3.service.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;

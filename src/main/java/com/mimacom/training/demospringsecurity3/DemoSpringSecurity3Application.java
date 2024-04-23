@@ -1,13 +1,13 @@
-package com.mimacom.training.demospringsecurity_2;
+package com.mimacom.training.demospringsecurity3;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoSpringSecurity2Application {
+public class DemoSpringSecurity3Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoSpringSecurity2Application.class, args);
+		SpringApplication.run(DemoSpringSecurity3Application.class, args);
 	}
 
 }

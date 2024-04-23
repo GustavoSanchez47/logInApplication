@@ -1,8 +1,8 @@
-package com.mimacom.training.demospringsecurity_2.service;
+package com.mimacom.training.demospringsecurity3.service;
 
-import com.mimacom.training.demospringsecurity_2.dto.UserRegistrationDTO;
-import com.mimacom.training.demospringsecurity_2.model.Role;
-import com.mimacom.training.demospringsecurity_2.model.User;
+import com.mimacom.training.demospringsecurity3.dto.UserRegistrationDTO;
+import com.mimacom.training.demospringsecurity3.model.Role;
+import com.mimacom.training.demospringsecurity3.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

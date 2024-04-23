@@ -1,4 +1,4 @@
-package com.mimacom.training.demospringsecurity_2.dto;
+package com.mimacom.training.demospringsecurity3.dto;
 
 public class UserRegistrationDTO {
     private String username;

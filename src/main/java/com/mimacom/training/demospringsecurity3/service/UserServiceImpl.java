@@ -1,11 +1,10 @@
-package com.mimacom.training.demospringsecurity_2.service;
+package com.mimacom.training.demospringsecurity3.service;
 
-import com.mimacom.training.demospringsecurity_2.dto.UserRegistrationDTO;
-import com.mimacom.training.demospringsecurity_2.model.Role;
-import com.mimacom.training.demospringsecurity_2.model.User;
-import com.mimacom.training.demospringsecurity_2.repository.UserRepository;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import com.mimacom.training.demospringsecurity3.dto.UserRegistrationDTO;
+import com.mimacom.training.demospringsecurity3.model.Role;
+import com.mimacom.training.demospringsecurity3.model.User;
+import com.mimacom.training.demospringsecurity3.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,7 +16,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
-
+    @Autowired
     private BCryptPasswordEncoder passwordEncoder;
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -32,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(username);
+        User user = userRepository.findByEmailOrUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("invalid username or password "+ username);
         }

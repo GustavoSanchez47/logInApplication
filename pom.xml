@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.mimacom.training</groupId>
-	<artifactId>demoSpringSecurity_2</artifactId>
+	<artifactId>demoSpringSecurity3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demoSpringSecurity_2</name>
 	<description>demoSpringSecurity_2</description>
