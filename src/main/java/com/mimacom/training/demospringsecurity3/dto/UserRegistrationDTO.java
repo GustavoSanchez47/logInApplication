@@ -4,6 +4,7 @@ public class UserRegistrationDTO {
     private String username;
     private String password;
     private String email;
+    private Boolean isAdmin;
 
     public UserRegistrationDTO() {}
 
@@ -12,6 +13,21 @@ public class UserRegistrationDTO {
         this.password = password;
         this.email = email;
 
+    }
+
+    public UserRegistrationDTO(String username, String password, String email, Boolean isAdmin) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.isAdmin = isAdmin;
+    }
+
+    public Boolean getIsAdmin() {
+        return this.isAdmin;
+    }
+
+    public void setIsAdmin(Boolean admin) {
+        isAdmin = admin;
     }
 
     public String getUsername() {

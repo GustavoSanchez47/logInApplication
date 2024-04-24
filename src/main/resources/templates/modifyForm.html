@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+        <html xmlns:th="http://www.thymeleaf.org" lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <title>Modify Task Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Modify Task Form</h2>
+    <form th:action="@{/modifySubmit}" method="post" th:object="${task}">
+        <!-- Campo oculto para almacenar el ID del objeto que se va a modificar -->
+        <input type="hidden" th:field="*{id}">
+
+        <div class="form-group row">
+            <label for="inputTaskName" class="col-sm-2 col-form-label">Task Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputTaskName" name="taskName" th:field="*{taskName}" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputDescription" class="col-sm-2 col-form-label">Description:</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" id="inputDescription" name="description" th:field="*{description}" rows="3" required></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputStatus" class="col-sm-2 col-form-label">Status:</label>
+            <div class="col-sm-10">
+                <!-- Mostrar el estado actual seleccionado -->
+                <select class="form-control" id="inputStatus" name="status" th:field="*{status}" required>
+                    <option value="in progress" th:selected="${task.status == 'in progress'}">In Progress</option>
+                    <option value="paused" th:selected="${task.status == 'paused'}">Paused</option>
+                    <option value="aborted" th:selected="${task.status == 'aborted'}">Aborted</option>
+                    <option value="finished" th:selected="${task.status == 'finished'}">Finished</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputUsers" class="col-sm-2 col-form-label">Users:</label>
+            <div class="col-sm-10">
+                <!-- Mostrar los usuarios seleccionados previamente -->
+                <select multiple class="form-control" id="inputUsers" name="users" th:field="*{users}" required>
+                    <option th:each="user : ${allUsers}" th:value="${user.id}" th:text="${user.username}" th:selected="${task.users.contains(user)}"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10 offset-sm-2">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

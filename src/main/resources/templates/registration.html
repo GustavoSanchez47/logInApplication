@@ -62,6 +62,15 @@
                         id="password" class="form-control" type="password"
                         th:field="*{password}" required autofocus="autofocus" />
                 </div>
+                <div class="form-group">
+                    <label class="control-label">Select Role:</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="isAdmin" th:field="*{isAdmin}">
+                        </label>
+                    </div>
+                </div>
+
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">Register</button>
