@@ -60,7 +60,7 @@
             <td th:text="${task.description}"></td>
             <td th:text="${task.status}"></td>
             <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{delete(id=${task.id})}">Delete</a></td>
-            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{modify(id=${task.id})}">Modify</a></td>
+            <td ><a th:href="@{modify(id=${task.id})}">Modify</a></td>
         </tr>
         </tbody>
     </table>

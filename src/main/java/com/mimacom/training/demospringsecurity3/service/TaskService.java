@@ -26,4 +26,5 @@ public interface TaskService {
                 authentication.getAuthorities().stream()
                         .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN"));
     }
+    public List<Task> findAllTasks();
 }

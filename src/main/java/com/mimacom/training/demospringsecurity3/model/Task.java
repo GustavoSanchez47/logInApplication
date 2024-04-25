@@ -1,6 +1,7 @@
 package com.mimacom.training.demospringsecurity3.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.util.Collection;
 
@@ -10,6 +11,7 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @NotEmpty
     private String taskName;
     private String description;
     private String status;
