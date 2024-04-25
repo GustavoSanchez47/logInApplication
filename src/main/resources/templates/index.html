@@ -23,7 +23,7 @@
                     class="icon-bar"></span> <span class="icon-bar"></span> <span
                     class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" th:href="@{/}">Registration and
+            <a class="navbar-brand" href="#" th:href="@{index}">Registration and
                 Login Module</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
@@ -41,6 +41,33 @@
     <h1>Registration and Login with Spring Boot, Spring Security,
         Thymeleaf, Hibernate and MySQL</h1>
     Welcome <span sec:authentication="principal.username"> User</span>
+    <br>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Iterar sobre las tareas y mostrarlas en la tabla -->
+        <tr th:each="task : ${tasks}">
+            <td th:text="${task.id}"></td>
+            <td th:text="${task.taskName}"></td>
+            <td th:text="${task.description}"></td>
+            <td th:text="${task.status}"></td>
+            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{delete(id=${task.id})}">Delete</a></td>
+            <td ><a th:href="@{modify(id=${task.id})}">Modify</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        <a class="btn btn-primary" th:href="@{insertForm}">Create new Task</a>
+    </div>
+
 </div>
 </body>
 </html>

@@ -43,6 +43,9 @@
             <h1>Registration</h1>
 
             <form th:action="@{/registration}" method="post" th:object="${user}">
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">Invalid Email format</div>
+                </div>
                 <div class="form-group">
                     <label class="control-label" for="firstName"> User Name </label>
                     <input id="firstName" class="form-control" th:field="*{username}"
@@ -62,6 +65,15 @@
                         id="password" class="form-control" type="password"
                         th:field="*{password}" required autofocus="autofocus" />
                 </div>
+                <div class="form-group">
+                    <label class="control-label">Select Role:</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="isAdmin" th:field="*{isAdmin}">
+                        </label>
+                    </div>
+                </div>
+
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">Register</button>
