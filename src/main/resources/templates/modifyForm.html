@@ -49,9 +49,13 @@
             <label for="inputUsers" class="col-sm-2 col-form-label">Users:</label>
             <div sec:authorize="hasRole('ROLE_USER')" class="col-sm-10" >
                 <!-- Mostrar los usuarios seleccionados previamente -->
-                <select multiple class="form-control" id="inputUsers" name="users" th:field="*{users}" >
+                <select multiple class="form-control" id="inputUsers" name="users" th:field="*{users}" disabled>
                     <option th:each="user : ${allUsers}" th:value="${user.id}" th:text="${user.username}" th:selected="${task.users.contains(user)}"></option>
                 </select>
+                <select multiple class="form-control" id="inputUsers2" name="users" th:field="*{users}" HIDDEN="hidden">
+                    <option th:each="user : ${allUsers}" th:value="${user.id}" th:text="${user.username}" th:selected="${task.users.contains(user)}"></option>
+                </select>
+
             </div>
             <div sec:authorize="hasRole('ROLE_ADMIN')" class="col-sm-10">
                 <!-- Mostrar los usuarios seleccionados previamente -->

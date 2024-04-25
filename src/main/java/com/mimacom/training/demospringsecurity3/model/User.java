@@ -1,6 +1,8 @@
 package com.mimacom.training.demospringsecurity3.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
 
 import java.util.Collection;
 
@@ -12,6 +14,7 @@ public class User {
     private long id;
     private String username;
     private String password;
+    @Email
     private String email;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
@@ -24,7 +27,7 @@ public class User {
 
     public User() {}
 
-    public User(String username, String password, String email, Collection<Role> roles) {
+    public User(String username, String password, String email , Collection<Role> roles) {
         this.username = username;
         this.password = password;
         this.email = email;

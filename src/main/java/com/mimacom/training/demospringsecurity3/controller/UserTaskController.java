@@ -82,7 +82,7 @@ public class UserTaskController {
     @PostMapping("/modifySubmit")
     public String modifySubmit(@ModelAttribute Task task, @RequestParam("users") List<User> users, Model model) throws AccessDeniedException {
         task.setUsers(users);
-        taskService.save(task);
+        taskService.modify(task);
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         extracted(model);
         // Verificamos si la autenticación es válida y tiene detalles de usuario

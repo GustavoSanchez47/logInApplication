@@ -32,6 +32,14 @@ public class TaskServiceImpl implements TaskService {
         return taskRepository.save(task);
     }
     @Override
+    public Task modify(Task task)  {
+        // Verificamos si el usuario tiene el rol de administrador
+
+
+        // Guardamos la tarea en la base de datos
+        return taskRepository.save(task);
+    }
+    @Override
     public void deleteTask(Task task) {
         taskRepository.delete(task);
     }

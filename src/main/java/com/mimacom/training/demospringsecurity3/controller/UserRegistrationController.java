@@ -4,10 +4,12 @@ import com.mimacom.training.demospringsecurity3.dto.UserRegistrationDTO;
 import com.mimacom.training.demospringsecurity3.model.User;
 import com.mimacom.training.demospringsecurity3.service.TaskService;
 import com.mimacom.training.demospringsecurity3.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -30,8 +32,11 @@ public class UserRegistrationController {
         return "registration";
     }
     @PostMapping
-    public String registerUserAccount(@ModelAttribute("user") UserRegistrationDTO userRegistrationDTO) {
+    public String registerUserAccount(@ModelAttribute("user")  @Valid UserRegistrationDTO userRegistrationDTO, BindingResult bindingResult, Model model) {
 
+        if (bindingResult.hasErrors()) {
+            return "redirect:/registration?error";
+        }
         userService.save(userRegistrationDTO);
         return "redirect:/registration?success";
     }

@@ -16,7 +16,7 @@ public interface TaskService {
     void deleteTask(Task task);
 
     Task findTaskById(long id);
-
+    public Task modify(Task task);
     default boolean isAdmin() {
         // Obtenemos la autenticación actual
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

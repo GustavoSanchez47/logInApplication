@@ -1,8 +1,11 @@
 package com.mimacom.training.demospringsecurity3.dto;
 
+import jakarta.validation.constraints.Email;
+
 public class UserRegistrationDTO {
     private String username;
     private String password;
+    @Email
     private String email;
     private Boolean isAdmin;
 
